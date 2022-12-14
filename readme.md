@@ -19,4 +19,13 @@
 | AUTHOR  | 没啥用，可以不配，就是显示推送者信息 |
 | URL  | 同样没啥用，就是点击可以进去的url，可以不配 |
 
+
+#### 版本更新说明
+|  变量名   | 说明  |
+|  ----  | ----  |
+| v1.0  | 为增加环境变量版本，可以配置上述全部变量|
+| v1.0.1 | 为替换了镜像底包，将Docker镜像由之前的950MB缩减至160MB|
+
+#### 发布地址
+Github源码：https://github.com/kerwin162/WeChatNotify
 Docker-Hub镜像地址：https://hub.docker.com/r/blackheads/wechat_notify
