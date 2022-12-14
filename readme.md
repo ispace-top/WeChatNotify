@@ -19,4 +19,4 @@
 | AUTHOR  | 没啥用，可以不配，就是显示推送者信息 |
 | URL  | 同样没啥用，就是点击可以进去的url，可以不配 |
 
-
+Docker-Hub镜像地址：https://hub.docker.com/r/blackheads/wechat_notify
