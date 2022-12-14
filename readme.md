@@ -27,5 +27,5 @@
 | v1.0.1 | 为替换了镜像底包，将Docker镜像由之前的950MB缩减至160MB|
 
 #### 发布地址
-Github源码：https://github.com/kerwin162/WeChatNotify
-Docker-Hub镜像地址：https://hub.docker.com/r/blackheads/wechat_notify
+- Github源码：https://github.com/kerwin162/WeChatNotify
+- Docker-Hub镜像地址：https://hub.docker.com/r/blackheads/wechat_notify
