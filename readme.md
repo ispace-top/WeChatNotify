@@ -1,5 +1,4 @@
 ## 企业微信应用通知推送转发
----
 [![Docker Image CI](https://github.com/kerwin162/WeChatNotify/actions/workflows/docker-image.yml/badge.svg)](https://github.com/kerwin162/WeChatNotify/actions/workflows/docker-image.yml)
 #### 说明
 本人长期在使用群晖nas，但是群晖的通知推送只能推送到邮箱或者短信。
