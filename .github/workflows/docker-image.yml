@@ -25,7 +25,7 @@ jobs:
           # 去掉前面的 refs/tags/
           echo ::set-output name=RELEASE_VERSION::$(echo ${GITHUB_REF:10})
           # 修改为你要推送的 镜像名
-          echo ::set-output name=IMAGE_NAME::upyun-action
+          echo ::set-output name=blackheads/wechat_notify::upyun-action
           
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
