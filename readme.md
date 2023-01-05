@@ -5,7 +5,12 @@
 看到网上前辈们将企业微信应用当做虚拟短信通知服务使用时茅塞顿开，于是就有了这个项目。
 
 #### 使用
-直接 docker run -p 端口:80 -it wechat_notify:last 就可以，端口填写你需要映射的端口就好。
+1. Docker容器部署
+   直接 docker run -p 端口:80 -it wechat_notify:last 就可以，端口填写你需要映射的端口就好。
+2. 群晖设置
+   2.1 控制面板——通知设置——短信
+   2.2 新增短信服务商，http://192.168.10.15:2180/notify/nas?title=title&info=hello world&p=
+
 
 ##### ※ 需要配置环境变量 ※
 |  变量名   | 说明  |
