@@ -31,6 +31,7 @@
    - ##### 新增短信服务商；名称自己随便起，测试网址填入步骤1的容器地址和映射的端口。
 
       <img src="pic/step-2.png" width="320px" />
+      
       例如：http://192.168.10.15:2180/notify/nas?title=title&info=hello world&p=
 
 
