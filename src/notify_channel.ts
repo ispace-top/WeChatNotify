@@ -32,4 +32,16 @@ export class NotifyChannel {
         );
     }
 
+    public static buildTest(): NotifyChannel {
+        return new NotifyChannel(
+            process.env.CORP_ID as String,
+            process.env.CORP_SECRET as String,
+            process.env.AGENT_ID as String,
+            process.env.AUTHOR as String,
+            process.env.THUMB_ID as String,
+            process.env.URL as String,
+            process.env.TO_USER as String
+        );
+    }
+
 }

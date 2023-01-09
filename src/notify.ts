@@ -33,42 +33,46 @@ export class WechatNotify {
     }
 
 
-    private send(channel: NotifyChannel, title: String, content: String, type: NotifyType, toUser?: String) {
+    private async send(channel: NotifyChannel, title: String, content: String, type: NotifyType, toUser?: String) {
         if (toUser == undefined || toUser == null || toUser == "") {
-            toUser = channel.toUser; 
+            toUser = channel.toUser;
         }
         var data = this.getOptionByType(title, content, type, channel, toUser);
-        this.getAccessToken(function (token: String) {
-            WechatNotify.sendNotify(token, channel.agentId, data, toUser);
-        });
-
+        let token = await this.getAccessToken();
+        let result=await WechatNotify.sendNotify(token, channel.agentId, data, toUser);
     }
 
-    public static sendNotify(token: String, agentId: String, data: any, toUser?: String) {
+    public static sendNotify(token: String, agentId: String, data: any, toUser?: String): Promise<any> {
         let url = SEND_MESSAGE_URL + token;
-
-        netInstance.post(url, {
-            touser: toUser,
-            agentid: agentId,
-            ...data
-        }).then(function (res) {
-            console.log("发送消息 =》 " + JSON.stringify(res.data));
+        return new Promise((resolve, reject) => {
+            netInstance.post(url, {
+                touser: toUser,
+                agentid: agentId,
+                ...data
+            }).then(res => {
+                console.log("发送消息 =》 " + JSON.stringify(res.data));
+                resolve(true);
+            }, reason => {
+                reject(reason);
+                console.log("发送消息失败！ =》 " + reason);
+            });
         });
     }
 
 
-    private getAccessToken(callback: Function) {
-        netInstance.get(
-            ACCESS_TOKEN_URL + "?corpid=" + this.channel.corpId + "&corpsecret=" + this.channel.corpSecret
-        ).then(function (response) {
-            if (response.status == 200 && response.data.errcode == 0) {
-                callback(response.data.access_token);
-            } else {
-                callback(null);
-            }
-        });
+    private getAccessToken(): Promise<any> {
+        return new Promise(relsove => {
+            netInstance.get(
+                ACCESS_TOKEN_URL + "?corpid=" + this.channel.corpId + "&corpsecret=" + this.channel.corpSecret
+            ).then(res => {
+                if (res.status == 200 && res.data.errcode == 0) {
+                    relsove(res.data.access_token);
+                } else {
+                    relsove(null);
+                }
+            });
+        })
     }
-
     /**
      * 根据通知类型构建请求参数
      * @param title 通知标题 
