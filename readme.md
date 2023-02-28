@@ -8,7 +8,7 @@
 1. #### Docker容器部署
    - ##### 拉取部署docker容器
 
-     直接 docker run -p 端口:80 -it wechat_notify:last 就可以，端口填写你需要映射的端口就好。
+     直接 docker run -p [端口]:80 -it blackheads/wechat_notify:latest 就可以，端口填写你需要映射的端口就好。
 
    - ##### 需要配置环境变量
 
