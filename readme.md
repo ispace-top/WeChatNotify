@@ -40,6 +40,8 @@
 |  ----  | ----  |
 | v1.0  | 为增加环境变量版本，可以配置上述全部变量|
 | v1.0.1 | 为替换了镜像底包，将Docker镜像由之前的335MB缩减至49MB|
+| v1.0.3 | 修改镜像底包，修复运行时报找不到node Moudle错误|
+
 
 #### 四、发布地址
 - Github源码：https://github.com/kerwin162/WeChatNotify
