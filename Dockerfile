@@ -1,7 +1,7 @@
 #Node 版本
 # FROM node:16.15.1
 # FROM alpine:latest
-FROM node:16.15.1-alpine3.16
+FROM node:16.15.1-alpine
 
 # 使用 apk 命令安装 nodejs 和 yarn，如果使用 npm 启动，就不需要装 yarn
 # RUN apk add --no-cache --update nodejs=16.15.1

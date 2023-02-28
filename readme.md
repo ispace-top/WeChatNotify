@@ -8,7 +8,7 @@
 1. #### Docker容器部署
    - ##### 拉取部署docker容器
 
-     直接 docker run -p [端口]:80 -it blackheads/wechat_notify:latest 就可以，端口填写你需要映射的端口就好。
+     直接 docker run -p 端口:80 -it wechat_notify:latest 就可以，端口填写你需要映射的端口就好。
 
    - ##### 需要配置环境变量
 
@@ -26,13 +26,13 @@
 
    - ##### 控制面板——通知设置——短信
 
-       <img src="pic/step-1.png" width="320px" />
+       <img src="pic/step-1.png" width="640px" />
 
    - ##### 新增短信服务商；名称自己随便起，测试网址填入步骤1的容器地址和映射的端口。
 
-      <img src="pic/step-2.png" width="320px" />
+      <img src="pic/step-2.png" width="640px" />
       
-      例如：http://192.168.10.15:2180/notify/nas?title=title&info=hello world&p=
+      例如：http://192.168.1.1:2180/notify/nas?title=title&info=hello world&p=
 
 
 #### 三、版本更新说明
@@ -40,6 +40,8 @@
 |  ----  | ----  |
 | v1.0  | 为增加环境变量版本，可以配置上述全部变量|
 | v1.0.1 | 为替换了镜像底包，将Docker镜像由之前的335MB缩减至49MB|
+| v1.0.3 | 修改镜像底包，修复运行时报找不到node Moudle错误|
+
 
 #### 四、发布地址
 - Github源码：https://github.com/kerwin162/WeChatNotify
