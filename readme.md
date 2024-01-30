@@ -24,6 +24,9 @@
    
 2. #### 群晖设置
 
+   - ##### 在Docker中搜索镜像：wechat_notify
+     建议拉去最新release版本，不要拉去latest。latest为非稳定测试版镜像。
+
    - ##### 控制面板——通知设置——短信
 
        <img src="pic/step-1.png" width="640px" />
@@ -34,6 +37,9 @@
       
       例如：http://192.168.1.1:2180/notify/nas?title=title&info=hello world&p=
 
+     **注：** V1.0.4版本新增可选字段`type`,参数：text，textCard,html。对应微信消息的消息类型
+     使用示例：http://192.168.1.1:2180/notify/nas?title=title&info=hello world&type='text'&p=
+
 
 #### 三、版本更新说明
 |  版本   | 说明  |
@@ -41,6 +47,7 @@
 | v1.0  | 为增加环境变量版本，可以配置上述全部变量|
 | v1.0.1 | 为替换了镜像底包，将Docker镜像由之前的335MB缩减至49MB|
 | v1.0.3 | 修改镜像底包，修复运行时报找不到node Moudle错误|
+| v1.0.4 | 新增信息类型参数|
 
 
 #### 四、发布地址
