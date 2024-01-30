@@ -1,3 +1,3 @@
-export enum NotifyType{
-    TEXT,TEXTCARD,HTML
+export enum NotifyType {
+    TEXT = 'text', TEXTCARD = 'textCard', HTML = 'html'
 }

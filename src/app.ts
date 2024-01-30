@@ -1,6 +1,6 @@
 import express from 'express';
 import { WechatNotify } from './notify';
-import {NotifyChannel } from './notify_channel';
+import { NotifyChannel } from './notify_channel';
 
 
 const app = express();
@@ -12,8 +12,9 @@ const wechat_notify = new WechatNotify(NotifyChannel.build());
 app.get('/notify/nas', (req, res) => {
     var title = req.query.title as String;
     var info = req.query.info as String;
-    try { 
-        wechat_notify.sendHtml(title, info); 
+    var type = req.query.type as String;
+    try {
+        wechat_notify.sendInfo(title, info, type);
         res.send({
             code: 200,
             data: {
@@ -21,7 +22,7 @@ app.get('/notify/nas', (req, res) => {
                 msg: 'Msg send!'
             }
         });
-    } catch (err) { 
+    } catch (err) {
         res.send({
             code: 200,
             data: {
@@ -34,5 +35,5 @@ app.get('/notify/nas', (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log("服务已启动！ 访问地址：http://127.0.0.1:"+PORT);
+    console.log("服务已启动！ 访问地址：http://127.0.0.1:" + PORT);
 });

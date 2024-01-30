@@ -32,17 +32,30 @@ export class WechatNotify {
         this.send(this.channel, title, content, NotifyType.HTML, toUser);
     }
 
+    public sendInfo(title: String, content: String, type: String, toUser?: String) {
+        let enumType=NotifyType.HTML;
+        switch (type) {
+            case NotifyType.TEXT:
+                enumType = NotifyType.TEXT
+                return;
+            case NotifyType.TEXTCARD:
+                enumType = NotifyType.TEXTCARD
+                return;
+        }
+        this.send(this.channel, title, content,enumType, toUser);
+    }
 
-    private async send(channel: NotifyChannel, title: String, content: String, type: NotifyType, toUser?: String) {
+
+    public async send(channel: NotifyChannel, title: String, content: String, type: NotifyType, toUser?: String) {
         if (toUser == undefined || toUser == null || toUser == "") {
             toUser = channel.toUser;
         }
         var data = this.getOptionByType(title, content, type, channel, toUser);
         let token = await this.getAccessToken();
-        let result=await WechatNotify.sendNotify(token, channel.agentId, data, toUser);
+        await this.sendNotify(token, channel.agentId, data, toUser);
     }
 
-    public static sendNotify(token: String, agentId: String, data: any, toUser?: String): Promise<any> {
+    private sendNotify(token: String, agentId: String, data: any, toUser?: String): Promise<any> {
         let url = SEND_MESSAGE_URL + token;
         return new Promise((resolve, reject) => {
             netInstance.post(url, {
