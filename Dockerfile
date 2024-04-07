@@ -1,17 +1,20 @@
 #Node 版本
-FROM node:18.14.2-alpine
-# 使用 apk 命令安装 nodejs 和 yarn，如果使用 npm 启动，就不需要装 yarn
-RUN apk add --no-cache --update nodejs=18.14.2 yarn
+FROM node:18-alpine
+
+# 安装 TypeScript
+RUN npm install -g typescript
 
 ARG NODE_ENV=production
 ENV NODE_ENV ${NODE_ENV}
 
+COPY ./src/ /src/
 COPY ./package.json /package.json
-COPY ./package-lock.json /package-lock.json
+COPY ./tsconfig.json /tsconfig.json
 
-RUN  npm install && npm run tsc
-COPY . /build
-
+RUN npm install
+RUN npm run tsc
+COPY . /app
+WORKDIR /app
 EXPOSE 80
 
-CMD ["node","build/app.js"]
+CMD ["node","app.js"]
