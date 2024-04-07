@@ -1,20 +1,14 @@
-#Node 版本
-FROM node:18-alpine
-
-# 安装 TypeScript
-RUN npm install -g typescript
+FROM node:18.14.2-alpine
 
 ARG NODE_ENV=production
 ENV NODE_ENV ${NODE_ENV}
 
-COPY ./src/ /src/
+COPY ./build /app
 COPY ./package.json /package.json
-COPY ./tsconfig.json /tsconfig.json
+COPY ./package-lock.json /package-lock.json
 
-RUN npm install
-RUN npm run tsc
-COPY . /app
-WORKDIR /app
+RUN NODE_ENV=$NODE_ENV npm install
+
 EXPOSE 80
 
-CMD ["node","app.js"]
+CMD ["node","app/app.js"]
