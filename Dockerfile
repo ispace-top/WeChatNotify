@@ -13,9 +13,7 @@ ENV NODE_ENV ${NODE_ENV}
 COPY ./package.json /package.json
 COPY ./package-lock.json /package-lock.json
 
-RUN NODE_ENV=$NODE_ENV npm install && npm run tsc
-##使用distroless镜像来压缩打包大小，Link：https://dockone.io/article/8174
-# FROM gcr.io/distroless/nodejs
+RUN npm install -g typescript && npm install && npm run tsc
 
 EXPOSE 80
 
