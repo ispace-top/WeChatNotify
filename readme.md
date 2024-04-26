@@ -1,6 +1,6 @@
 ## 企业微信应用通知推送转发
 [![Docker Image CI](https://github.com/kerwin162/WeChatNotify/actions/workflows/docker-image.yml/badge.svg)](https://github.com/kerwin162/WeChatNotify/actions/workflows/docker-image.yml)
-![](https://vbr.nathanchung.dev/badge?page_id=we-chhat-notify&lcolor=3b4148&color=64c362&style=flat&logo=Github&hit=false)
+![](https://visitor-badge.laobi.icu/badge?page_id=ispace.top.wechat.notify&lcolor=3b4148&color=64c362&style=flat&logo=Github&hit=false)
 ![](https://img.shields.io/github/issues-raw/kerwin162/WeChatNotify?label=Issues)
 [![](https://img.shields.io/badge/License-MIT%202.0-green.svg)](https://github.com/kerwin162/WeChatNotify/blob/master/LICENSE)
 ### 一、说明
