@@ -1,6 +1,8 @@
 ## 企业微信应用通知推送转发
 [![Docker Image CI](https://github.com/kerwin162/WeChatNotify/actions/workflows/docker-image.yml/badge.svg)](https://github.com/kerwin162/WeChatNotify/actions/workflows/docker-image.yml)
-![](https://vbr.nathanchung.dev/badge?page_id=visitor-badge-reloaded-visitors&lcolor=3b4148&color=64c362&style=flat&logo=Github&hit=false)
+![](https://vbr.nathanchung.dev/badge?page_id=we-chhat-notify&lcolor=3b4148&color=64c362&style=flat&logo=Github&hit=false)
+[![](https://goreportcard.com/badge/github.com/kerwin162/WeChatNotify)](https://goreportcard.com/report/github.com/kerwin162/WeChatNotify)
+[![](https://img.shields.io/badge/License-MIT%202.0-blue.svg)](https://github.com/kerwin162/WeChatNotify/blob/master/LICENSE)
 ### 一、说明
 
  本人长期在使用群晖nas，但是群晖的通知推送只能推送到邮箱或者短信。看到网上前辈们将企业微信应用当做虚拟短信通知服务使用时茅塞顿开，于是就有了这个项目。
