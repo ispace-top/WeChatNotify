@@ -4,7 +4,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/blackheads/wechat_notify?style=flat-square)](https://hub.docker.com/r/blackheads/wechat_notify)
 [![Latest Version](https://img.shields.io/github/v/release/kerwin162/WeChatNotify?color=success&include_prereleases&style=flat-square)](https://github.com/xaoyaoo/PyWxDump/releases)
 
-> 📢 专为群晖NAS设计的轻量级企业微信消息代理服务 | [English Document](#) (待补充英文版时添加)
+> 📢 专为群晖NAS设计的轻量级企业微信消息代理服务 
 
 ### 一、🌟 项目背景
 
