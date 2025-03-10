@@ -22,15 +22,15 @@ export class NotifyChannel {
      * @param url - 消息详情跳转链接
      * @param toUser - 默认消息接收人（格式：UserID1|UserID2，默认@all）
      */
-    public corpId!: String;
-    public corpSecret!: String;
-    public agentId!: String;
-    public url!: String;
-    public author!: String;
-    public thumbId!: String;
-    public toUser!:String;
+    public corpId!: string;
+    public corpSecret!: string;
+    public agentId!: string;
+    public url!: string;
+    public author!: string;
+    public thumbId!: string;
+    public toUser!: string;
 
-    constructor(corpid: String, corpsecret: String, agentid: String, author: String, thumbId: String, url: String,toUser:String) {
+    constructor(corpid: string, corpsecret: string, agentid: string, author: string, thumbId: string, url: string, toUser: string) {
         this.corpId = corpid;
         this.corpSecret = corpsecret;
         this.agentId = agentid;
@@ -79,13 +79,13 @@ export class NotifyChannel {
      */
     public static buildTest(): NotifyChannel {
         return new NotifyChannel(
-            process.env.CORP_ID as String,
-            process.env.CORP_SECRET as String,
-            process.env.AGENT_ID as String,
-            process.env.AUTHOR as String,
-            process.env.THUMB_ID as String,
-            process.env.URL as String,
-            process.env.TO_USER as String
+            process.env.CORP_ID as string,
+            process.env.CORP_SECRET as string,
+            process.env.AGENT_ID as string,
+            process.env.AUTHOR as string,
+            process.env.THUMB_ID as string,
+            process.env.URL as string,
+            process.env.TO_USER as string
         );
     }
 }

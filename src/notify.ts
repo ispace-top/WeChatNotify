@@ -1,17 +1,22 @@
-import { NotifyType } from "./notity_type";
+import { NotifyType } from "./notity_type.js";
 import axios from 'axios'
-import { NotifyChannel } from './notify_channel';
+import { NotifyChannel } from './notify_channel.js';
+import { NotificationProvider, NotificationMessage } from './notification_provider.js';
+import { NotificationFactory } from './notification_factory.js'; 
+
 
 const BASE_URL = "https://qyapi.weixin.qq.com/cgi-bin/";
 const ACCESS_TOKEN_URL = 'gettoken';
 const SEND_MESSAGE_URL = "message/send?access_token=";
 
+// 移除泛型参数，因为create方法不需要指定泛型参数
 const netInstance = axios.create({
-    baseURL: BASE_URL, timeout: 5000, headers: {
-        'Content-Type': 'application/json',
+    baseURL: BASE_URL,
+    timeout: 5000,
+    headers: {
+        'Content-Type': 'application/json'
     }
-});
-
+}) as import('axios').AxiosInstance;
 
 export class WechatNotify {
     /**
@@ -163,3 +168,39 @@ export class WechatNotify {
 
 }
 
+export class WechatNotificationProvider implements NotificationProvider {
+    private channel: NotifyChannel;
+    private timeout: number;
+
+    constructor(config: any) {
+        this.channel = new NotifyChannel(
+            config.CORP_ID,
+            config.CORP_SECRET,
+            config.AGENT_ID,
+            config.AUTHOR,
+            config.THUMB_ID,
+            config.URL,
+            config.TO_USER
+        );
+        this.timeout = config.timeout || 5000;
+    }
+
+    async sendMessage(message: NotificationMessage): Promise<void> {
+        const typeMap: { [key: string]: NotifyType } = {
+            'text': NotifyType.TEXT,
+            'textcard': NotifyType.TEXTCARD,
+            'html': NotifyType.HTML
+        };
+        if (!typeMap[message.type]) {
+            throw new Error(`不支持的消息类型: ${message.type}`);
+        }
+        const wechatNotify = new WechatNotify(this.channel);
+        return wechatNotify.send(
+            this.channel,
+            message.title,
+            message.content,
+            typeMap[message.type],
+            message.receiver
+        );
+    }
+}
